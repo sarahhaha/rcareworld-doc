@@ -9,3 +9,4 @@ run `python train.py --algo tqc --env KinovaDressing-v1`
 run `python enjoy.py --algo tqc --env KinovaDressing-v1 -f logs/ -n 1000`
 ### Record Video
 run `python -m utils.record_video --algo tqc --env KinovaDressing-v1 -f logs/ -n 1000`
+![image](https://user-images.githubusercontent.com/16759982/173900389-2fb0dafb-ebe6-4aa2-a8a5-56fae09c95b2.png)
