@@ -1,12 +1,18 @@
-## RFUniverse Dependency
+# RFUniverse Dependency
 We use [RFUniverse](https://wenqiangx.github.io/robotflowproject/project/rfuniverse/) to construct Unity side and to communicate with Python side. 
-Since RFUnivese has not been made public, please reach out to Cathy (ry273@cornell.edu) to get code for RFUniverse.
+Since RFUnivese has not been made public, please reach out to Cathy (ry273@cornell.edu) to get full Unity code for RFUniverse.
 
-## Experiments
-### Train
-run `python train.py --algo tqc --env KinovaDressing-v1`
-### Test
-run `python enjoy.py --algo tqc --env KinovaDressing-v1 -f logs/ -n 1000`
-### Record Video
-run `python -m utils.record_video --algo tqc --env KinovaDressing-v1 -f logs/ -n 1000`
-![image](https://user-images.githubusercontent.com/16759982/173900389-2fb0dafb-ebe6-4aa2-a8a5-56fae09c95b2.png)
+# Quick Start Guide
+Download Unity exectuable file [Windows] [Ubuntu]
+
+Install pyrfuniverse module. 
+```
+cd pyrfuniverse
+conda create -n rcare python=3.8
+conda activate rcare
+pip install -r requirements.txt
+pip install -e .
+```
+Use the editor
+
+For Windows, `./Player.exe -edit`. For Ubuntu, `./Player.x86_64 -edit`
