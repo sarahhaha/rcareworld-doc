@@ -1,5 +1,5 @@
 # Install
-There are two ways of using RCareWorld. 
+There are two ways of installing RCareWorld. 
 ## With builtin assets
 Download Unity exectuable file [Windows] [Ubuntu]
 
@@ -56,4 +56,52 @@ To install from a local clone of the repository, see [installing a local package
 
 
 # Getting Started
-RCareWorld is built upon RFUniverse project, which leverages the communication scheme of [ML-agents](https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Getting-Started.md). You may take a look at ML-agent's tutorial to have an overview of how 
+RCareWorld is built upon RFUniverse project, which leverages the communication scheme of [ML-agents](https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Getting-Started.md). You may take a look at ML-agent's tutorial to have an overview of how the Python-Unity framework works. In short, Unity and Python communicates with each other with gRPC. Also, please refer to ML-agent's tutorial to have an overview of the Scene concept in Unity.
+In this section, we'll first look at an example and then introduce the elements of RCareWorld.
+## The First Example
+Let's start with an example. Start your Unity Editor before doing the steps in the following. 
+First, open the `Man` scene in Unity Editor. There should be something like the following image. Make sure the models are complete.
+![image](https://user-images.githubusercontent.com/16759982/174258734-b8c9362e-15d6-4664-a19d-f4e54a0f4bb9.png)
+
+Second, run `pyrfuniverse/tests/test_man.py`
+```
+python test_man.py
+pybullet build time: May  6 2022 01:58:07
+Side channel id in use:
+534c891e-810f-11ea-a9d0-822485860400
+d587efc8-9eb7-11ec-802a-18c04d443e7d
+2d1916c4-4c96-4dff-a341-426976c91192
+63d7c283-f43a-4336-8aef-916ea91b1d9f
+09bfcf57-9120-43dc-99f8-abeeec59df0f
+```
+
+Next, click on the button to run Unity Scene.
+
+![image](https://user-images.githubusercontent.com/16759982/174259121-c2b39dc4-432c-4de5-9694-453168527343.png)
+
+You will see the robot moving and repositioning the human avatar's arm. 
+
+![image](https://user-images.githubusercontent.com/16759982/174259400-aa355dc5-5871-465c-88c3-61756c7cb5ff.png)
+
+Your install will be fine if this demo works correctly.
+
+## Components in a RCareWorld Scene
+Let's take a closer look at this scene. Here is a human avatar coverred with soft tissue and a robot arm. The followng section will explain how to setup this scene
+and introduce the components in a RCareWorld.
+### Agent
+Agent is responsible for communicating. An Agent should be placed in the scene to make the Python script work. Agent looks like the following.
+
+![image](https://user-images.githubusercontent.com/16759982/174257293-6a467a3f-4854-4f5e-b5e1-a642be449c22.png)
+
+To setup a scene, the first thing is to add an Agent in Unity Editor. Right click in the Hierarchy Window, select `Create Empty`. You will see a new `GameObject` in the editor. Rename it to `Agent`.
+
+Add `BaseAgent` script to this Agent script. Click `Add Component`
+
+![image](https://user-images.githubusercontent.com/16759982/174261187-a0390d4e-10c9-472c-93c0-755a359f19fb.png)
+
+Type `Base Agent` and click on the `Base Agent` script. The agent setup is done.
+
+![image](https://user-images.githubusercontent.com/16759982/174261326-704dedac-c790-4a76-9273-4ff610e04908.png)
+
+##
+
