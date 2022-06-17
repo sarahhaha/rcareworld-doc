@@ -108,7 +108,53 @@ Type `Base Agent` and click on the `Base Agent` script. The agent setup is done.
 
 ![](https://user-images.githubusercontent.com/16759982/174261326-704dedac-c790-4a76-9273-4ff610e04908.png)
 
-### Python Code
+### Attributes
+
+![Game Object Attribute for the Cube](https://user-images.githubusercontent.com/16759982/174290279-93b3f84d-2ff9-4e20-831f-5ef5a1a0b0be.png)
+
+![Controller for Kinova Robot](https://user-images.githubusercontent.com/16759982/174291951-98116a0a-3ffd-4d77-994e-f6a2361b6c19.png)
+
+*You can directly use the robot in `Prefab` folder instaed of setting up a robot from URDF, if you are not trying to use a new robot.*
+
+## Setup the Scene
+### Setup Obi Solver
+Obi is a purchased asset(package), we can use the one in the codebase for the time being.
+Refer to the tutorial to setup a soft body human
+http://obi.virtualmethodstudio.com/manual/6.3/charactersoftbody.html
+### Attach an Obi Collider to the cube
+![](https://user-images.githubusercontent.com/16759982/174292685-36d0b65a-3e60-42c1-bb23-c432085677b8.png)
+### Add ObiSolver and ObiLateFixedUpdate to the root node of human model
+![](https://user-images.githubusercontent.com/16759982/174292842-cb0fddb1-e644-4eec-ba52-43ca07a94966.png)
+### Add Solver into Updater
+![](https://user-images.githubusercontent.com/16759982/174292990-a8b1e685-2739-4bb5-8a00-3b60c140a7ee.png)
+### Create Asset: SoftbodySurfaceBluePrint
+Click Generate after setting like this
+
+![](https://user-images.githubusercontent.com/16759982/174293230-4412821d-d19e-4c0b-ab65-38a7a9f4b0e8.png)
+
+Please refer to the tutorial of Obi softbody for more details.
+### Combine Softbody with human
+Add ObiSoftBody and ObiSoftBodySkinner to SMPLX-mesh-male node;
+Attach SoftBody to the Source softbody of Skinner;
+Attach SoftbodySurfaceBluePrint to the Blueprint in ObiSoftBody
+![](https://user-images.githubusercontent.com/16759982/174293459-d1767738-e98f-4fc6-9287-444e08d6e5aa.png)
+
+Clink the Bindskin button on ObiSoftBodySkinner
+![](https://user-images.githubusercontent.com/16759982/174293550-2c5eed44-2aa8-44a0-b7b2-6859eb540502.png)
+
+### Make human articulated
+Add ArticulationBody on the root node of the skeleton. Untick UseGravity. Add ArticulationBody to the subskeletons, for instance, you need to manipulate a human’s arm, maybe you only need to set this arm as an articulated body. 
+You can set joint limits and joint types in the inspector window.
+![](https://user-images.githubusercontent.com/16759982/174293737-43aa951d-6883-4a3c-81d1-d958c4d2f6cb.png)
+
+### Add proper colliers
+You can add capsale colliders for human limbs, or other shape that fits a human body well.
+![](https://user-images.githubusercontent.com/16759982/174293964-80b86535-2b72-440f-b3ec-fc2a8e86f973.png)
+
+
+
+## Python Code
+Then let's have a look at the 
 ```
 class SoftBodyTestEnv(RFUniverseBaseEnv):
     def __init__(
