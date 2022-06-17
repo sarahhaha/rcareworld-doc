@@ -1,10 +1,6 @@
-# RFUniverse Dependency
-We use [RFUniverse](https://wenqiangx.github.io/robotflowproject/project/rfuniverse/) to construct Unity side and to communicate with Python side. 
-Since RFUnivese has not been made public, please reach out to Cathy (ry273@cornell.edu) to get full Unity code for RFUniverse.
-
 # Install
 There are two ways of using RCareWorld. 
-## With provided assets
+## With builtin assets
 Download Unity exectuable file [Windows] [Ubuntu]
 
 Install pyrfuniverse module. 
@@ -20,6 +16,9 @@ Use the editor
 For Windows, `./Player.exe -edit`. For Ubuntu, `./Player.x86_64 -edit`
 
 ## With custom assets
+### RFUniverse Dependency
+We use [RFUniverse](https://wenqiangx.github.io/robotflowproject/project/rfuniverse/) to construct Unity side and to communicate with Python side. 
+Since RFUnivese has not been made public, please reach out to Cathy (ry273@cornell.edu) to get full Unity code for RFUniverse.
 ### Install PyRfuniverse
 Install pyrfuniverse module. 
 ```
@@ -48,7 +47,6 @@ You need to get the paid assets from Unity Asset Store to get Unity side working
 
 1. In the Package Manager window, find and click the `+` button in the upper lefthand corner of the window. Select `Add package from git URL...`.
 
-
 1. Enter the git URL for the package. Note: you can append a version tag to the end of the git url, like `#v0.4.0` or `#v0.5.0`, to declare a specific package version, or exclude the tag to get the latest from the package's `main` branch.
    1. For the [ROS-TCP-Connector](https://github.com/Unity-Technologies/ROS-TCP-Connector), enter `https://github.com/Unity-Technologies/ROS-TCP-Connector.git?path=/com.unity.robotics.ros-tcp-connector`.
 
@@ -57,3 +55,5 @@ You need to get the paid assets from Unity Asset Store to get Unity side working
 To install from a local clone of the repository, see [installing a local package](https://docs.unity3d.com/Manual/upm-ui-local.html) in the Unity manual.
 
 
+# Getting Started
+RCareWorld is built upon RFUniverse project, which leverages the communication scheme of [ML-agents](https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Getting-Started.md). You may take a look at ML-agent's tutorial to have an overview of how 
