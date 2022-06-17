@@ -151,10 +151,16 @@ You can set joint limits and joint types in the inspector window.
 You can add capsale colliders for human limbs, or other shape that fits a human body well.
 ![](https://user-images.githubusercontent.com/16759982/174293964-80b86535-2b72-440f-b3ec-fc2a8e86f973.png)
 
+Add Obi colliders to the robot gripper so that it can interact with the softbody human which is in Obi solver.
+![](https://user-images.githubusercontent.com/16759982/174295018-fad04242-01e9-44e6-a06e-82a4367285ab.png)
 
+### Visualization
+You are almost there! Now the Scene setting is done. 
+If you want to visualise deformation on particles, attach these scripts to human 
+![](https://user-images.githubusercontent.com/16759982/174295347-b71bb122-f81a-4582-adae-0e1b76e9a8c7.png)
 
 ## Python Code
-Then let's have a look at the 
+Then let's have a look at the the python code, which can make the Kinova robot move and interact with human.
 ```
 class SoftBodyTestEnv(RFUniverseBaseEnv):
     def __init__(
