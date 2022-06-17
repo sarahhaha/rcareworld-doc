@@ -61,7 +61,7 @@ In this section, we'll first look at an example and then introduce the elements 
 ## The First Example
 Let's start with an example. Start your Unity Editor before doing the steps in the following. 
 First, open the `Man` scene in Unity Editor. There should be something like the following image. Make sure the models are complete.
-![image](https://user-images.githubusercontent.com/16759982/174258734-b8c9362e-15d6-4664-a19d-f4e54a0f4bb9.png)
+![Unity Editor](https://user-images.githubusercontent.com/16759982/174258734-b8c9362e-15d6-4664-a19d-f4e54a0f4bb9.png)
 
 Second, run `pyrfuniverse/tests/test_man.py`
 ```
@@ -77,11 +77,16 @@ d587efc8-9eb7-11ec-802a-18c04d443e7d
 
 Next, click on the button to run Unity Scene.
 
-![image](https://user-images.githubusercontent.com/16759982/174259121-c2b39dc4-432c-4de5-9694-453168527343.png)
+![Run button](https://user-images.githubusercontent.com/16759982/174259121-c2b39dc4-432c-4de5-9694-453168527343.png)
 
 You will see the robot moving and repositioning the human avatar's arm. 
 
-![image](https://user-images.githubusercontent.com/16759982/174259400-aa355dc5-5871-465c-88c3-61756c7cb5ff.png)
+![](https://user-images.githubusercontent.com/16759982/174259400-aa355dc5-5871-465c-88c3-61756c7cb5ff.png)
+
+And in the terminal whre python runs you will see outputs like these:
+```
+{'gravity_forces': [-0.0002206891222158447, 48.74412155151367, -8.762385368347168, 45.774208068847656, 14.679387092590332, 0.8401356339454651, -0.03461959958076477, -0.7229466438293457, 0.2632662057876587, -0.12076511979103088, -0.718228816986084, 0.274467796087265, -0.13025012612342834], 'coriolis_centrifugal_forces': [1.4526883363723755, -1.005357265472412, 1.6692850589752197, -1.5723116397857666, -0.10112074017524719, 1.1313716173171997, 0.021233953535556793, -0.011885210871696472, -0.015485050156712532, -0.0005606227205134928, 0.04887770116329193, 0.0014246093342080712, 0.007489994168281555], 'drive_forces': [14.636249542236328, -178.42129516601562, 36.54844665527344, -78.24534606933594, -27.06083869934082, -21.341175079345703, 16.785539627075195, 2.2281360626220703, -0.771892786026001, 0.16910383105278015, 1.3702343702316284, -1.7367568016052246, 0.027873782441020012]}
+```
 
 Your install will be fine if this demo works correctly.
 
@@ -91,17 +96,53 @@ and introduce the components in a RCareWorld.
 ### Agent
 Agent is responsible for communicating. An Agent should be placed in the scene to make the Python script work. Agent looks like the following.
 
-![image](https://user-images.githubusercontent.com/16759982/174257293-6a467a3f-4854-4f5e-b5e1-a642be449c22.png)
+![](https://user-images.githubusercontent.com/16759982/174257293-6a467a3f-4854-4f5e-b5e1-a642be449c22.png)
 
 To setup a scene, the first thing is to add an Agent in Unity Editor. Right click in the Hierarchy Window, select `Create Empty`. You will see a new `GameObject` in the editor. Rename it to `Agent`.
 
 Add `BaseAgent` script to this Agent script. Click `Add Component`
 
-![image](https://user-images.githubusercontent.com/16759982/174261187-a0390d4e-10c9-472c-93c0-755a359f19fb.png)
+![](https://user-images.githubusercontent.com/16759982/174261187-a0390d4e-10c9-472c-93c0-755a359f19fb.png)
 
 Type `Base Agent` and click on the `Base Agent` script. The agent setup is done.
 
-![image](https://user-images.githubusercontent.com/16759982/174261326-704dedac-c790-4a76-9273-4ff610e04908.png)
+![](https://user-images.githubusercontent.com/16759982/174261326-704dedac-c790-4a76-9273-4ff610e04908.png)
 
-##
+### Python Code
+```
+class SoftBodyTestEnv(RFUniverseBaseEnv):
+    def __init__(
+        self
+    ):
+        super().__init__(
+            articulation_channel=True,
+            game_object_channel=True,
+            rigidbody_channel=True,
+        )
+        self.ik_controller = RFUniverseKinovaController(
+            robot_urdf=os.path.join(
+                assets_path.__path__,
+                'URDF\kinova_gen3\GEN3_URDF_V12.urdf'
+            )
+        )
+
+    def move(self, pos: list, rot: list):
+        joint_positions = self.ik_controller.calculate_ik(pos, eef_orn=p.getQuaternionFromEuler(rot))
+        self._set_kinova_joints(joint_positions)
+        self._get_kinova_forces()
+
+    def _set_kinova_joints(self, joint_positions):
+        self.articulation_channel.set_action(
+            'SetJointPosition',
+            id=31589218,
+            joint_positions=list(joint_positions[0:7]),
+        )
+        self._step()
+    
+    def _get_kinova_forces(self):
+        self.articulation_channel.GetJointInverseDynamicsForce(31589218)
+        self._step()
+        print(self.articulation_channel.data['inverse_dynamics_force'])
+```
+
 
