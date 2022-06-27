@@ -1,9 +1,12 @@
-# Install
-There are two ways of installing RCareWorld. 
-## With builtin assets
-Download Unity exectuable file [Windows] [Ubuntu]
-
-Install pyrfuniverse module. 
+# Install  
+Organize the folder as  
+```
+RCareWorld 
+- pyrfuniverse
+- RCareUnity
+```
+## Install Python module
+Clone [RCareWorld_dev](https://github.com/empriselab/RCareWorld_dev.git) repo and run the following commands.
 ```
 cd pyrfuniverse
 conda create -n rcare python=3.8
@@ -11,25 +14,17 @@ conda activate rcare
 pip install -r requirements.txt
 pip install -e .
 ```
-Use the editor
+## With prebuilt environments
+If you want to try our provided environments and test your own algorithms, you can download the executable files from [Google drive](
 
+## With builtin assets
+Download Unity exectuable file [Windows] [Ubuntu]
+Use the editor
 For Windows, `./Player.exe -edit`. For Ubuntu, `./Player.x86_64 -edit`
 
 ## With custom assets
-### RFUniverse Dependency
-We use [RFUniverse](https://wenqiangx.github.io/robotflowproject/project/rfuniverse/) to construct Unity side and to communicate with Python side. 
-Since RFUnivese has not been made public, please reach out to Cathy (ry273@cornell.edu) to get full Unity code for RFUniverse.
-### Install PyRfuniverse
-Install pyrfuniverse module. 
-```
-cd pyrfuniverse
-conda create -n rcare python=3.8
-conda activate rcare
-pip install -r requirements.txt
-pip install -e .
-```
 ### Install Unity
-RCareWorld currently works with Unity 2022.1.3f1c1. Please install this version of Unity Editor.
+RCareWorld currently works with Unity 2022.1.3f1c1. Please install this version of Unity Editor. Before that, you might need to install Unity-Hub. See [this](https://unity.com/download) for reference.
 There might be errors (for instance, no URDF-Importer), just ignore it and continue.
 ### Import RCareWorld Project into Unity
 The whole project can be downloaded from Google Drive, please contact the development team to have access to the codebase of Unity.
