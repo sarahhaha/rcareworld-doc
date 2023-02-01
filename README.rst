@@ -1,9 +1,6 @@
-Template for the Read the Docs tutorial
+RCareWorld documents
 =======================================
+Read the tutorials here:
+https://rcareworld.readthedocs.io/en/latest/
 
-This GitHub template includes fictional Python library
-with some basic Sphinx docs.
-
-Read the tutorial here:
-
-https://docs.readthedocs.io/en/stable/tutorial/
+If you have any questions regarding the tutorials, please post on [Forum](https://github.com/empriselab/RCareWorld/discussions)
