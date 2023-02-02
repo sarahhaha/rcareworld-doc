@@ -16,4 +16,4 @@ Contents
 .. toctree::
 
    usage.md
-   api
+   scene.md
