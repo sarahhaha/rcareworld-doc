@@ -17,3 +17,4 @@ Contents
 
    usage.md
    scene.md
+   robots.md
