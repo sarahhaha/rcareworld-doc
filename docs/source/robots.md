@@ -31,3 +31,6 @@ After performing the steps in *URDF Importer*, you need to remove the scripts ad
 ![image](https://user-images.githubusercontent.com/16759982/216428412-16504e60-bd8e-4306-9d01-9e06fdb473aa.png)
 
 ![image](https://user-images.githubusercontent.com/16759982/216428483-b19d7a2d-9730-4f2d-95e2-fb0739b61372.png)
+
+![image](https://user-images.githubusercontent.com/16759982/216429777-4e4ca04a-3ad8-4218-9f65-d001fc566a37.png)
+
