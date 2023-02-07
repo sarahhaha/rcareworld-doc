@@ -46,7 +46,24 @@ After performing the steps in *URDF Importer*, you need to remove the scripts ad
 ![6. Select the robot in the scene, and drag it into some folders, to make it a prefab. Press `Ctrl + G` to make it addressable assets, which can be loaded by Python into the Scene.
 The `addressble` box should be checked if the step is successful.](https://user-images.githubusercontent.com/16759982/216430606-41a6754b-ee63-408f-8243-3d94bc35d905.png)
 
-7. Setup URDF for Python. Specify URDF path when you initialize the robot. Note, the path here should be an absolute path.
+Remember to etup URDF for Python. Specify URDF path when you initialize the robot. Note, the path here should be an absolute path.
 ```
 env._create_robot(315894, [3158940], YOUR_PATH_TO_URDF)
 ```
+
+## Move a robot
+### Set joint positions
+Use `setJointPositions` to set joint target positions, and move to the target position graduately. The joint positions are in `degrees`. The order of the list of positions starts from the `root` of the articulation body. Take robots as the example, the 0-th element is its first movable joint from the base.
+```
+# Example:
+# Have a robot object
+my_robot = env.robot()
+# Have a list of joint positions, in dergees
+joint_positions = [0, 10, 10, 10, 10, 10, 100]
+# Set joint positions
+my_robot.setJointPositions(joint_positions = joint_positions)
+# Set joint positions with speed scale
+
+
+### With Pybullet IK
+### With 
