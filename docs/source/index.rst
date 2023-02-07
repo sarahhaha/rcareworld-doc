@@ -17,4 +17,9 @@ Contents
 
    usage.md
    scene.md
+   physics.md
+   objects.md
    robots.md
+   human.md
+   
+   
