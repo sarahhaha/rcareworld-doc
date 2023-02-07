@@ -52,8 +52,10 @@ env._create_robot(315894, [3158940], YOUR_PATH_TO_URDF)
 ```
 
 ## Move a robot
-### Set joint positions
-Use `setJointPositions` to set joint target positions, and move to the target position graduately. The joint positions are in `degrees`. The order of the list of positions starts from the `root` of the articulation body. Take robots as the example, the 0-th element is its first movable joint from the base.
+### In joint space
+Use `setJointPositions` to set joint target positions, and move to the target position graduately. Use `setJointPositionsDirectly` to teleport joints. The joint positions are in `degrees`. Use `setJointPositionsContinue` if `BioIK` is enabled. 
+
+The order of the list of positions starts from the `root` of the articulation body. Take robots as the example, the 0-th element is its first movable joint from the base.
 ```
 # Example:
 # Have a robot object
@@ -62,8 +64,14 @@ my_robot = env.robot()
 joint_positions = [0, 10, 10, 10, 10, 10, 100]
 # Set joint positions
 my_robot.setJointPositions(joint_positions = joint_positions)
-# Set joint positions with speed scale
+# Set joint positions with speed scale. Defaut to be 100, actual speed = speed_scale*100
+my_robot.setJointPositions(joint_positions = joint_positions, speed_scale = 1)
+# Teleport joint positions
+my_robot.setJointPositionsDirectly(joint_positions = joint_positions)
+```
 
 
+### In task space
+There are two ways to move robots in the task space, THe difference is which IK to use.
 ### With Pybullet IK
 ### With 
