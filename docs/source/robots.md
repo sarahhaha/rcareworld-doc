@@ -70,8 +70,8 @@ my_robot.setJointPositions(joint_positions = joint_positions, speed_scale = 1)
 my_robot.setJointPositionsDirectly(joint_positions = joint_positions)
 ```
 
-
 ### In task space
 There are two ways to move robots in the task space, THe difference is which IK to use.
 ### With Pybullet IK
+
 ### With 
