@@ -73,5 +73,11 @@ my_robot.setJointPositionsDirectly(joint_positions = joint_positions)
 ### In task space
 There are two ways to move robots in the task space, THe difference is which IK to use.
 ### With Pybullet IK
+You can 
+### With BioIK
+![Check this box to initialize BioIK](https://user-images.githubusercontent.com/16759982/217403513-2fc3108d-3d41-4a3f-93e9-dc674b55e089.png)
+If BioIK is initialized, you will be able to use the following functions:
+```
+```
 
-### With 
+
