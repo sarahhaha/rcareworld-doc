@@ -64,6 +64,23 @@ RCareWorld currently works with Unity 2022.1.3+. Please install this version of 
 ### Import RCareWorld Project into Unity
 The whole project can be downloaded from Google Drive, please contact the development team to have access to the codebase of Unity.
 You need to get the paid assets from Unity Asset Store to get Unity side working. We provide an asset list for you to purchase. After downloading, you need to import the project into Unity. Ignore the errors and continue.
+### Fix the Errors by Installing Packages
+Users will need to purchase certain packages to use the simulation environment.
+#### Obi 
+- `Softbody` for soft-tissue on human body https://assetstore.unity.com/packages/tools/physics/obi-softbody-130029
+- `Fluid` (optional) https://assetstore.unity.com/packages/tools/physics/obi-fluid-63067
+- `Cloth` for tasks involving garments (optional) https://assetstore.unity.com/packages/tools/physics/obi-cloth-81333
+- `Rope` (optional) https://assetstore.unity.com/packages/tools/physics/obi-rope-55579
+*KNOWN ISSUE*: 
+![Issue like this](https://user-images.githubusercontent.com/16759982/217441647-120a9204-8db3-4dce-851b-6b49fa5ce34b.png)
+Follow this link to fix it.
+http://obi.virtualmethodstudio.com/forum/thread-3703-post-13679.html?highlight=GraphColoring#pid13679
+#### BioIK
+To replace the pybullet IK for articulated agents like human and robots. https://assetstore.unity.com/publishers/22741
+#### DOTWeen (Free asset)
+https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676
+
+
 ### Install URDF Importer
 1. Open the Package Manager from Unity Menu. Click `Window -> Package Manager`. A new package manager window will appear.
 
