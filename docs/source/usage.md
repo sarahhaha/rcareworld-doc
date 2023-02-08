@@ -71,6 +71,7 @@ Users will need to purchase certain packages to use the simulation environment.
 - `Fluid` (optional) https://assetstore.unity.com/packages/tools/physics/obi-fluid-63067
 - `Cloth` for tasks involving garments (optional) https://assetstore.unity.com/packages/tools/physics/obi-cloth-81333
 - `Rope` (optional) https://assetstore.unity.com/packages/tools/physics/obi-rope-55579
+
 *KNOWN ISSUE*: 
 ![Issue like this](https://user-images.githubusercontent.com/16759982/217441647-120a9204-8db3-4dce-851b-6b49fa5ce34b.png)
 Follow this link to fix it.
