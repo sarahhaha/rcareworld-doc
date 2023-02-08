@@ -64,8 +64,6 @@ my_robot = env.robot()
 joint_positions = [0, 10, 10, 10, 10, 10, 100]
 # Set joint positions
 my_robot.setJointPositions(joint_positions = joint_positions)
-# Set joint positions with speed scale. Defaut to be 100, actual speed = speed_scale*100
-my_robot.setJointPositions(joint_positions = joint_positions, speed_scale = 1)
 # Teleport joint positions
 my_robot.setJointPositionsDirectly(joint_positions = joint_positions)
 ```
