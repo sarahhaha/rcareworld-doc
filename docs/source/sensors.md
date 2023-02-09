@@ -30,5 +30,5 @@ To get RGB data, use `initializeRGBWithIntrinsic` or `initializeRGB`. Don't forg
 Similarly, use `initializeDepthWithIntrinsic` or `initializeDepth`, and `getDepth`.
 
 ### ActiveDepth data
-Following [SAPIEN2](https://sapien.ucsd.edu/docs/2.0/tutorial/rendering/raytracing_renderer.html#sensor-simulation-in-kuafu) and [pyrfuniverse](, we now have IR based active depth sensor. 
+Following [SAPIEN2](https://sapien.ucsd.edu/docs/2.0/tutorial/rendering/raytracing_renderer.html#sensor-simulation-in-kuafu) and [pyrfuniverse](https://github.com/mvig-robotflow/pyrfuniverse), we now have IR based active depth sensor. 
 ### 
