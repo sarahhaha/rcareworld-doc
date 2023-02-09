@@ -19,6 +19,7 @@ Contents
    scene.md
    physics.md
    objects.md
+   sensors.md
    robots.md
    human.md
    
