@@ -85,4 +85,74 @@ Don't want to touch Unity side? If you find it enough to just use the assets we 
 The assets we provide as as the following:
 
 
+## Python APIs
+The `RCareWorld` is the basic environment class in RCareWorld. You can use it to set up an environments with objects, robots, and human agents.
 
+The environment can be initialized by executable file, scene_file, or using Unity Editor. If no scene_file or exectuable file provided, then it uses the Unity editor.
+```
+class RCareWorld(RFUniverseBaseEnv):
+    def __init__(
+                 self,
+                 executable_file: str = None,
+                 scene_file: str = None,
+                 custom_channels: list = [],
+                 assets: list = [],
+                 **kwargs
+                 ):
+        super().__init__(
+            executable_file=executable_file,
+            scene_file=scene_file,
+            custom_channels=custom_channels,
+            assets=assets,
+            **kwargs,
+        )
+        # Information of robot, object, sensor information are stored here
+        self.robot_dict = {}
+        self.object_dict= {}
+        self.camera_dict = {}
+        self.sensor_date = {}
+        self.human_dict = {}
+```
+
+For each environment, we provide these functions to do a global control of the physics parameter of the simulated world.
+```
+def ignoreLayerCollision(self, layer1:int, layer2:int, ignore:bool):
+    self.asset_channel.set_action(
+        'IgnoreLayerCollision',
+        layer1 = layer1,
+        layer2 = layer2,
+        ignore = ignore,
+    )
+
+    def getCurrentCollisionPairs(self):
+        self.asset_channel.set_action(
+            'GetCurrentCollisionPairs'
+        )
+        self._step()
+        result = self.asset_channel.data['collision_pairs']
+        return result
+
+    def setGravity(self, x:float, y:float, z:float):
+        self.asset_channel.set_action(
+            'SetGravity',
+            x = x,
+            y = y,
+            z = z,
+        )
+
+    def setGroundPhysicMaterial(self, bounciness:float=0, dynamic_friction:float=1, static_friction:float=1, friction_combine:int=0, bounce_combine:int=0):
+        self.asset_channel.set_action(
+            'SetGroundPhysicMaterial',
+            bounciness = bounciness,
+            dynamic_friction = dynamic_friction,
+            static_friction = static_friction,
+            friction_combine = friction_combine,
+            bounce_combine = bounce_combine
+        )
+
+    def setTimeScale(self, time_scale:float):
+        self.asset_channel.set_action(
+            'SetTimeScale',
+            time_scale = time_scale
+        )
+ ```
