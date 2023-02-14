@@ -25,13 +25,26 @@ robot = env._get_robot(315894)
 ```
 
 ### Use Unity Editor
-If your robot is not natively available in RCareWorld now as a prefab, you need to use the Unity Editor to load it. Refer to [URDF Importer](https://github.com/Unity-Technologies/URDF-Importer#importing-the-robot-using-urdf-file) for reference.
+If your robot is not natively available in RCareWorld as a prefab, you need to use the Unity Editor to load it. Refer to [URDF Importer](https://github.com/Unity-Technologies/URDF-Importer#importing-the-robot-using-urdf-file) for more details.
 After performing the steps in *URDF Importer*, you need to remove the scripts add by this add-on. 
 
 ![1. Import the robot with URDF importer.](https://user-images.githubusercontent.com/16759982/216427827-fbe4fcb1-e615-43bc-9d81-330b8c7205c8.png)
 
+![2. Assign the ropbot an ID after importing.](https://user-images.githubusercontent.com/16759982/218605859-56b8f880-3f89-413d-9dfc-da5e19bb27ec.png)
 
-![2. Check if the robot is completely imported.](https://user-images.githubusercontent.com/16759982/216428034-d7cf6bd7-21dc-47da-8026-7fc663190b61.png)
+If the robot does not have gripper on it, you will also need to load the gripper from the corresponding URDF files and attach it to the robot. We demonstrate this step with a robotiq85 gripper in this tutorial.
+![3. Similarly, import the gripper into the scene with URDF importer.](https://user-images.githubusercontent.com/16759982/218606528-59225952-b9e5-4b95-847c-ba8ac152fe53.png)
+
+![4. Drag the gripper and make it as child of the EndEffector_Link. Modify the transform of it to be (0,0,0). ](https://user-images.githubusercontent.com/16759982/218606834-87f92dda-646f-4b7c-9337-20f0dc3823c3.png)
+
+![5. Do the `InitializeRCareWorldRobotJoints` step, and click `GetJointParameters`.](https://user-images.githubusercontent.com/16759982/218607048-2a36ba90-8139-497b-ba0f-7af8dbfcd603.png)
+
+![6. In childs of the robot arm, add the ghripper. It can be accessed with `robot_id`\*10 as its id.](https://user-images.githubusercontent.com/16759982/218607273-d39be889-8d84-4b8a-b58f-44373bda3e1b.png)
+
+
+
+
+<!-- ![2. Check if the robot is completely imported.](https://user-images.githubusercontent.com/16759982/216428034-d7cf6bd7-21dc-47da-8026-7fc663190b61.png)
 
 
 ![3. Click on the robot in the `Hierarchy` tab on the left side. Then click `CareTool/Articulation Body/Initialize RCareWorld Robot Joints` in the bar above.](https://user-images.githubusercontent.com/16759982/216428206-513cf1c2-f97b-40a2-b2a4-827548b0ec38.png)
@@ -44,7 +57,7 @@ After performing the steps in *URDF Importer*, you need to remove the scripts ad
 
 
 ![6. Select the robot in the scene, and drag it into some folders, to make it a prefab. Press `Ctrl + G` to make it addressable assets, which can be loaded by Python into the Scene.
-The `addressble` box should be checked if the step is successful.](https://user-images.githubusercontent.com/16759982/216430606-41a6754b-ee63-408f-8243-3d94bc35d905.png)
+The `addressble` box should be checked if the step is successful.](https://user-images.githubusercontent.com/16759982/216430606-41a6754b-ee63-408f-8243-3d94bc35d905.png) -->
 
 Remember to etup URDF for Python. Specify URDF path when you initialize the robot. Note, the path here should be an absolute path.
 ```
