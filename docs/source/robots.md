@@ -1,28 +1,35 @@
 # Robots
 `Robot` is the class for articulated robot arms in RCareWorld. The backend physics computation is handled by [PhysX](https://docs.unity3d.com/2023.1/Documentation/Manual/PhysicsOverview.html), which is the native physics backend of Unity. 
 ## Load a robot
-There are two ways of loading a robot into a scene, namely using Python or using Unity Editor.
+There are two ways of loading a robot into a scene, namely, using Python or using Unity Editor.
 ### Use Python API
 If you want to use Python to load a robot, make sure the robot is supported by RCareWorld. 
 Currently, we support these robots. 
 
 
 ```eval_rst
-+-------------------------+-----------+
-| Robot                   | ID        | 
-+=========================+===========+ 
-| Kinova_gen2_7dof_3finger| 315894    | 
-+------------+------------+-----------+ 
++---------------------------+-----------+---------------+
+| Robot                     | ID        | Gripper       |
++===========================+===========+===============+
+| kinova_gen2_7dof-3finger  | 315894    | 3-finger hand |
++---------------------------+-----------+---------------+
+| kinova_gen3_7dof-robotiq85| 315893    | robotiq85     |
++---------------------------+-----------+---------------+
 ```
 
-Assume you have already created an environment by doing `env = RCareWorld(assets=['MyNewCube'], is_in_scene = False)`. To load a Kinova_gen2_7dof_3finger robot, add a line of code
+Assume you have already created an environment by doing `env = RCareWorld(assets=[<asset_name>])`. 
+
+To create a kinova_gen3_7dof_robotiq85 robot, add a line of code
 ```
-env._create_robot(315894, [3158940], 'kinova_gen2_7dof')
+env._create_robot(315894, [3158940], 'kinova_gen3_7dof')
 ```
 Here `315894` is the id of the robot, and `3158940` is the id of the gripper. By default, gripper id is `robot_id` * 10. Use `env._get_robot(robot_id)` to get the robot you just created.
 ```
 robot = env._get_robot(315894)
+# if the robot is not in the scene, you need to load it
+robot.load()
 ```
+You sohuld be able to see the robot in the scene after doing these steps.
 
 ### Use Unity Editor
 If your robot is not natively available in RCareWorld as a prefab, you need to use the Unity Editor to load it. Refer to [URDF Importer](https://github.com/Unity-Technologies/URDF-Importer#importing-the-robot-using-urdf-file) for more details.
