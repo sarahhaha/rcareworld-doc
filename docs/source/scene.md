@@ -29,6 +29,7 @@ To be loaded with Python, the ojects, robots, and human avatars need to be store
 
 Click `RFUniverse/SceneExportToJson` in the tool bar above.
 ![The bar, click RFUniverse](https://user-images.githubusercontent.com/16759982/218005736-5b3b1ba0-227b-4ab9-8424-a0ca50c1732b.png)
+![Click SceneExportToJson](https://user-images.githubusercontent.com/16759982/219483131-d4f9769f-8344-48e8-a9fb-768fc5c0bbb8.png)
 
 If you see the log of `1` in the terminal, it means the json file is successfully exported. You can find the json file named the same with the scene in `Assets/StreamingAssets/SceneData/`folder.
 ![Export json file](https://user-images.githubusercontent.com/16759982/218006177-a7e65fb0-3af6-4953-b63a-84bcd9ad3504.png)
