@@ -16,9 +16,7 @@ whereis libdl.so.2
 libdl.so.2: [PATH of libdl.so.2]
 
 sudo ln -s [PATH of libdl.so.2] [PATH of libdl.so]
-
 ```
-
 
 ## File structures
 Organize the folder as  
