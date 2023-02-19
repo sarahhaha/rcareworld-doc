@@ -2,6 +2,21 @@
 ## System requirement
 The simulation environment has been tested on Windows and Ubuntu, while MacOS is not supported. We recommend using a desktop satisfying the requirements [here](https://docs.unity3d.com/Manual/system-requirements.html).
 
+If you are using Ubuntu version 22.04 you will need to create a symlink 
+
+You can check your unity version with the following command
+```
+lsb_release -a
+```
+
+If the version is 22.04, then you will need to create a symlink from libdl.so.2 to libdl.so.
+You can search the path of libdl.so.2 and create a symlink like so
+```
+whereis libdl.so.2
+libdl.so.2: [PATH of libdl.so.2]
+sudo ln -s [PATH of libdl.so.2] [PATH of libdl.so]
+```
+
 ## File structures
 Organize the folder as  
 ```
